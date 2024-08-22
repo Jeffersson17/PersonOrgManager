@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1 style="text-align: center;">Cadastro de Pessoas</h1>
+<form style="margin: 5px;" method="POST">
+  {% csrf_token %}
+  <div style="margin: 5px;" class="form-group">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control" value="{{ form.nome.value }}" name="nome">
+    {% for error in form.nome.errors %}
+        <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div style="margin: 5px;" class="form-group">
+    <label for="idade">Idade</label>
+    <input type="text" class="form-control" value="{{ form.idade.value }}" name="idade">
+    {% for error in form.idade.errors %}
+        <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+  <div style="text-align: right;">
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </div>
+</form>
+{% endblock %}
+
+{{ form.nome.value }}

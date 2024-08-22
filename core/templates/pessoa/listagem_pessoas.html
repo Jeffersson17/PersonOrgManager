@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+{% block conteudo %}
+<h1 style="text-align: center;">Lista de Pessoas Cadastradas</h1>
+<a href="{% url 'create' %}"><button class="btn btn-primary">Cadastrar</button></a>
+<div class="row">
+    <table class="table mt-2">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        {% for pessoa in object_list %}
+            <tbody>
+            <tr>
+                <th scope="row">{{ pessoa.id }}</th>
+                <td>
+                    {{ pessoa.nome }}
+                </td>
+                <td>
+                    {{ pessoa.idade }}
+                </td>
+                <td>
+                    <a href="{% url 'editar' pessoa.id %}">
+                        <i class="fa fa-pencil-alt"></i>
+                    </a>
+                    <a href="{% url 'delete' pessoa.pk %}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td> 
+            </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+</div>
+{% endblock %}
