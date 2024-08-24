@@ -1,0 +1,10 @@
+*/migrations/*.pyc
+*/migrations/__pycache__/
+.env
+*.log
+*.pot
+*.pyc
+*.pyo
+.DS_Store
+.vscode/
+.idea/
