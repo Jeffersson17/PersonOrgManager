@@ -20,6 +20,6 @@ from app.views import HomeTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('core/', include('core.urls')),
+    path('', include('core.urls')),
     path('', HomeTemplateView.as_view(), name="home"),
 ]
