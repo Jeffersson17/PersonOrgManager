@@ -6,7 +6,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 class PessoaListView(ListView):
     model = Pessoa
-    template_name = "pessoa/listagem_pessoas.html"
+    template_name = "pessoa/list.html"
 
 
 class PessoaCreateView(CreateView):
