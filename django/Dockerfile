@@ -9,5 +9,4 @@ COPY ./app/requirements/main.txt .
 RUN pip install --no-cache-dir -r main.txt
 
 # Comando para rodar a aplicação
-CMD ["bash", "start.sh"]
-
+CMD ["bash", "django/start.sh"]
