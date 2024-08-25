@@ -8,8 +8,6 @@ WORKDIR /app
 COPY ./app/requirements/main.txt .
 RUN pip install --no-cache-dir -r main.txt
 
-# Copie o código da aplicação
-COPY . .
 
 # Expor a porta usada pelo Django
 EXPOSE 8000
