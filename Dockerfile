@@ -8,10 +8,6 @@ WORKDIR /app
 COPY ./app/requirements/main.txt .
 RUN pip install --no-cache-dir -r main.txt
 
-
-# Expor a porta usada pelo Django
-EXPOSE 8000
-
 # Comando para rodar a aplicação
 CMD ["bash", "start.sh"]
 
