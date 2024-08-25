@@ -16,9 +16,9 @@ services:
       - mynetwork
 
   web:
-    build: .
+    build: ./django
     volumes:
-      - .:/app
+      - ./django:/app
     ports:
       - "8000:8000"
     depends_on:
