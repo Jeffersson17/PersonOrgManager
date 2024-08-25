@@ -1,13 +1,7 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .models import Pessoa
 from .forms import PessoaForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-
-# Create your views here.
-def home(request):
-    pessoas = Pessoa.objects.all()
-    return render(request, "home/home.html", {'Pessoas': pessoas})
 
 
 class PessoaListView(ListView):
