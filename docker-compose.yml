@@ -5,10 +5,8 @@ services:
     image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      POSTGRES_DB: my_application
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+    env_file:
+      - ./envs/postgres.env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -28,11 +26,8 @@ services:
         condition: service_healthy
     environment:
       DEBUG: '1'
-      DB_NAME: my_application
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: db
-      DB_PORT: 5432
+    env_file:
+      - ./envs/postgres.env
     networks:
       - mynetwork
 
