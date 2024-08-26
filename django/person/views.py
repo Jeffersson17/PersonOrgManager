@@ -13,14 +13,14 @@ class PessoaCreateView(CreateView):
     model = Pessoa
     form_class = PessoaForm
     template_name = "pessoa/create.html"
-    success_url = "/person"
+    success_url = reverse_lazy("list")
 
 
 class PessoaUpdateView(UpdateView):
     model = Pessoa
     form_class = PessoaForm
     template_name = 'pessoa/update.html'
-    success_url = '/person'
+    success_url = reverse_lazy("list")
 
 
 class PessoaDeleteView(DeleteView):
