@@ -5,7 +5,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Instale as dependências
-COPY ./app/requirements/main.txt .
+COPY ./client_scheduling/requirements/main.txt .
 RUN pip install --no-cache-dir -r main.txt
 
 # Comando para rodar a aplicação

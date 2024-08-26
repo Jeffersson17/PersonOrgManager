@@ -1,6 +1,6 @@
 from django import forms
 from .models import Pessoa
-from django.core.exceptions import ValidationError
+
 
 class PessoaForm(forms.ModelForm):
     class Meta:

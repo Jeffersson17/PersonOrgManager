@@ -13,22 +13,19 @@ class PessoaCreateView(CreateView):
     model = Pessoa
     form_class = PessoaForm
     template_name = "pessoa/create.html"
-    success_url = "/core/pessoa"
+    success_url = reverse_lazy("list")
 
 
 class PessoaUpdateView(UpdateView):
     model = Pessoa
     form_class = PessoaForm
     template_name = 'pessoa/update.html'
-    success_url = '/core/pessoa'
+    success_url = reverse_lazy("list")
 
 
 class PessoaDeleteView(DeleteView):
     model = Pessoa
-    success_url = reverse_lazy("pessoa_list")
+    success_url = reverse_lazy("list")
 
     def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
