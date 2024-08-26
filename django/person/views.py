@@ -28,7 +28,7 @@ class PessoaDeleteView(DeleteView):
     success_url = reverse_lazy("list")
 
     def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)
+        return self.delete(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
