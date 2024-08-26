@@ -2,10 +2,10 @@
 FROM python:3.10-slim
 
 # Defina o diretório de trabalho
-WORKDIR /project
+WORKDIR /app
 
 # Instale as dependências
-COPY ./project/requirements/main.txt .
+COPY ./client_scheduling/requirements/main.txt .
 RUN pip install --no-cache-dir -r main.txt
 
 # Comando para rodar a aplicação
