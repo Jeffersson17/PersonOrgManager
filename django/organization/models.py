@@ -8,3 +8,8 @@ class Organization(models.Model):
     address = models.ForeignKey(Address, unique=True, on_delete=models.SET_NULL)
     area = models.CharField()
     description = models.CharField(max_length=250)
+
+
+    class Meta:
+        verbose_name = 'Organização'
+        verbose_name_plural = 'Organizações'
