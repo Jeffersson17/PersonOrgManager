@@ -1,0 +1,32 @@
+{%extends "base.html" %}
+
+{% block title %} Person {% endblock %}
+{% block conteudo %}
+<h1 style="text-align: center;">Lista de Organizações Cadastradas</h1>
+<div class="row">
+    <table class="table mt-2">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Area</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for organization in object_list %}
+            <tr>
+                <td>{{ organization.name }}</td>
+                <td>{{ organization.phone }}</td>
+                <td>{{ organization.address.cep }}</td>
+                <td>{{ organization.address.city }}</td>
+                <td>{{ organization.address }}</td>
+                <td>{{ organization.area }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+</div>
+{% endblock %}
