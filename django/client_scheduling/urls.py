@@ -21,5 +21,7 @@ from client_scheduling.views import HomeTemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('person/', include('person.urls')),
+    path('organization/', include('organization.urls')),
+    path('address/', include('address.urls')),
     path('', HomeTemplateView.as_view(), name="home"),
 ]
