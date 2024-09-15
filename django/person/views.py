@@ -2,6 +2,8 @@ from django.urls import reverse_lazy
 from .models import Pessoa
 from .forms import PessoaForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from rest_framework import viewsets
+from .serializers import PessoaSerializer
 
 
 class PessoaListView(ListView):
@@ -29,3 +31,8 @@ class PessoaDeleteView(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
+
+
+class PessoaViewSet(viewsets.ModelViewSet):
+    queryset = Pessoa.objects.all()
+    serializer_class = PessoaSerializer

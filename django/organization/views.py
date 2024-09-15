@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from .models import Organization
 from .forms import OrganizationForm
 from django.urls import reverse_lazy
@@ -13,7 +13,7 @@ class OrganizationCreateView(CreateView):
     model = Organization
     form_class = OrganizationForm
     template_name = "register/register.html"
-    success_url = reverse_lazy("list")
+    success_url = reverse_lazy("list_organization")
 
 
     def get_context_data(self, **kwargs):
@@ -23,3 +23,18 @@ class OrganizationCreateView(CreateView):
         context['address_type'] = ADDRESS_TYPE
         context['area'] = AREA_CHOICES
         return context
+
+
+class OrganizationUpdateView(UpdateView):
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'actions/update.html'
+    success_url = reverse_lazy("list_organization")
+
+
+class OrganizationDeleteView(DeleteView):
+    model = Organization
+    success_url = reverse_lazy("list_organization")
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
