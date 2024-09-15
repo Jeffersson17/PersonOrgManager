@@ -25,10 +25,10 @@
                     {{ pessoa.idade }}
                 </td>
                 <td>
-                    <a href="{% url 'update' pessoa.id %}">
+                    <a href="{% url 'person_update' pessoa.id %}">
                         <i class="fa fa-pencil-alt"></i>
                     </a>
-                    <a href="{% url 'delete' pessoa.pk %}">
+                    <a href="{% url 'person_delete' pessoa.pk %}">
                         <i class="fa fa-trash"></i>
                     </a>
                 </td>
