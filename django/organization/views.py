@@ -19,7 +19,6 @@ class OrganizationCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         context['states'] = STATE_CITY_CHOICE
         context['address_type'] = ADDRESS_TYPE
         context['area'] = AREA_CHOICES
@@ -36,6 +35,7 @@ class OrganizationUpdateView(UpdateView):
 class OrganizationDeleteView(DeleteView):
     model = Organization
     success_url = reverse_lazy("list_organization")
+
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
