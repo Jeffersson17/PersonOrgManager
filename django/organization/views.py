@@ -9,6 +9,7 @@ class OrganizationListView(ListView):
     model = Organization
     template_name = 'register/list_organization.html'
 
+
 class OrganizationCreateView(CreateView):
     model = Organization
     form_class = OrganizationForm
