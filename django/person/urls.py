@@ -4,6 +4,6 @@ from person.views import PessoaListView, PessoaCreateView, PessoaUpdateView, Pes
 urlpatterns = [
     path('', PessoaListView.as_view(), name="list"),
     path('create/', PessoaCreateView.as_view(), name="create"),
-    path('update/<int:pk>/', PessoaUpdateView.as_view(), name='update'),
-    path('delete/<int:pk>/', PessoaDeleteView.as_view(), name='delete'),
+    path('update/<int:pk>/', PessoaUpdateView.as_view(), name='person_update'),
+    path('delete/<int:pk>/', PessoaDeleteView.as_view(), name='person_delete'),
 ]

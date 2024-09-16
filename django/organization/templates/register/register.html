@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+{% block conteudo %}
+<form class="row g-3" method="post">
+  {% csrf_token %}
+  <div class="col-md-6">
+    <label for="name" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="name" placeholder="Nome da Organização">
+  </div>
+  <div class="col-md-6">
+    <label for="phone" class="form-label">Telefone</label>
+    <input type="tel" class="form-control" name="phone" id="phone" placeholder="(99) 99999-9999">
+  </div>
+  <div class="col-6">
+    <label for="address" class="form-label">Endereço</label>
+    <input type="text" class="form-control" id="address" placeholder="Endereço">
+  </div>
+  <div class="col-md-3">
+    <label for="address_type" class="form-label">Tipo de Endereço</label>
+    <select id="address_type" class="form-select">
+      <option selected>Selecionar</option>
+      {% for key, value in address_type.items %}
+        <option value="{{ key }}">{{ value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="area" class="form-label">Area</label>
+    <select id="area" class="form-select">
+      <option selected>Selecionar</option>
+      {% for key, value in area.items %}
+        <option value="{{ key }}">{{ value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="name_city" class="form-label">Cidade</label>
+    <input type="text" placeholder="Nome da Cidade" class="form-control" id="name_city">
+  </div>
+  <div class="col-md-2">
+    <label for="state_city" class="form-label">Estado</label>
+    <select id="state_city" class="form-select">
+      <option selected>Selecionar...</option>
+      {% for key, value in states.items %}
+        <option value="{{ key }}">{{ value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="numero" class="form-label">Numero</label>
+    <input type="text" class="form-control" id="numero" placeholder="Número da residência">
+  </div>
+  <div class="col-md-4">
+    <label for="CEP" class="form-label">CEP</label>
+    <input type="text" class="form-control" id="CEP" placeholder="99999-999">
+  </div>
+  <div class="col-12">
+    <label for="complement" class="form-label">Complemento</label>
+    <input type="text" class="form-control" id="complement" placeholder="Ex.: Apartamento 12B">
+  </div>
+  <div class="col-12">
+    <label for="description" class="form-label">Descrição</label>
+    <textarea type="text" class="form-control" id="description" placeholder="Breve descrição da organização"></textarea>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Lembre-me
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </div>
+</form>
+{% endblock %}

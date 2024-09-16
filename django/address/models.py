@@ -1,5 +1,5 @@
 from django.db import models
-from defaults import ADDRESS_TYPE, STATE_CITY_CHOICE
+from address.defaults import ADDRESS_TYPE, STATE_CITY_CHOICE
 
 
 class City(models.Model):
@@ -7,6 +7,10 @@ class City(models.Model):
     state = models.CharField(STATE_CITY_CHOICE, max_length=2)
 
 
+    def __str__(self):
+        return self.name
+
+    
     class Meta:
         verbose_name = 'Cidade'
         verbose_name_plural = 'Cidades'
@@ -22,7 +26,11 @@ class Address(models.Model):
     complement = models.CharField(max_length=250, blank=True, null=True)
 
 
+    def __str__ (self):
+        return self.address
+
+
     class Meta:
         verbose_name = 'Endereço'
         verbose_name_plural = 'Endereços'
-        ordering = ['name']
+        ordering = ['city']
