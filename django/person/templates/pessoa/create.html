@@ -2,27 +2,32 @@
 
 {% block title %} Create {% endblock %}
 {% block conteudo %}
+
 <h1 style="text-align: center;">Cadastro de Pessoas</h1>
 <form style="margin: 5px;" method="POST">
   {% csrf_token %}
+
   <div style="margin: 5px;" class="form-group">
     <label for="name">Nome</label>
     <input type="text" class="form-control" placeholder="Nome" name="nome" value="{{ form.nome.value|default_if_none:'' }}">
+
     {% for error in form.nome.errors %}
         <div class="text-danger">{{ error }}</div>
     {% endfor %}
   </div>
+
   <div style="margin: 5px;" class="form-group">
     <label for="idade">Idade</label>
     <input type="text" class="form-control" placeholder="Idade" value="{{ form.idade.value|default_if_none:'' }}" name="idade">
+
     {% for error in form.idade.errors %}
         <div class="text-danger">{{ error }}</div>
     {% endfor %}
   </div>
+
   <div style="text-align: right;">
-    <a href="{% url 'client_scheduling:list-person' %}" class="btn btn-primary">
-      Cadastrar
-    </a>
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
   </div>
 </form>
+
 {% endblock %}

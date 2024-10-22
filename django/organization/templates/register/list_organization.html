@@ -3,6 +3,7 @@
 {% block title %} Person {% endblock %}
 {% block conteudo %}
 <h1 style="text-align: center;">Lista de Organizações Cadastradas</h1>
+
 <div class="row">
     <table class="table mt-2">
         <thead>
@@ -16,6 +17,7 @@
                 <th scope="col">Ações</th>
             </tr>
         </thead>
+
         <tbody>
             {% for organization in object_list %}
             <tr>
@@ -29,6 +31,7 @@
                     <a href="{% url 'update' organization.id %}">
                         <i class="fa fa-pencil-alt"></i>
                     </a>
+                    
                     <a href="{% url 'delete' organization.id %}">
                         <i class="fa fa-trash"></i>
                     </a>
@@ -36,6 +39,6 @@
             </tr>
             {% endfor %}
         </tbody>
-        </table>
+    </table>
 </div>
 {% endblock %}
