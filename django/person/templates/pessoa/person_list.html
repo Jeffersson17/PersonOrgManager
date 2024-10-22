@@ -3,7 +3,9 @@
 {% block title %} Person {% endblock %}
 {% block conteudo %}
 <h1 style="text-align: center;">Lista de Pessoas Cadastradas</h1>
-<a href="{% url 'create' %}"><button class="btn btn-primary">Cadastrar</button></a>
+<a href="{% url 'create' %}" class="btn btn-primary">
+    Cadastrar
+</a>
 <div class="row">
     <table class="table mt-2">
         <thead>
