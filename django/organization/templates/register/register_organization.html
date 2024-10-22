@@ -23,10 +23,6 @@
   <div class="col-6">
     <label for="address" class="form-label">Endereço</label>
     <input type="text" class="form-control" name="address" id="address" placeholder="Endereço" required>
-
-    {% for error in form.address.errors %}
-        <div class="text-danger">{{ error }}</div>
-    {% endfor %}
   </div>
 
   <div class="col-md-3">

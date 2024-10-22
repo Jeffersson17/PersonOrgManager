@@ -4,7 +4,7 @@ from .models import Organization
 class OrganizationForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ['phone', 'address', 'area']
+        fields = ['phone', 'area']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -20,8 +20,5 @@ class OrganizationForm(forms.ModelForm):
 
         if not area:
             self.add_error('area', 'A área é obrigatória.')
-
-        if not address:
-            self.add_error('address', 'O endereço é obrigatório.')
-
+            
         return cleaned_data
