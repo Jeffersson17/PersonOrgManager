@@ -10,7 +10,7 @@ class City(models.Model):
     def __str__(self):
         return self.name
 
-    
+
     class Meta:
         verbose_name = 'Cidade'
         verbose_name_plural = 'Cidades'
@@ -19,7 +19,7 @@ class City(models.Model):
 
 class Address(models.Model):
     address = models.CharField(max_length=50)
-    address_type = models.CharField(ADDRESS_TYPE, max_length=2)
+    address_type = models.CharField(choices=ADDRESS_TYPE, max_length=2)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     cep = models.CharField(max_length=8)
     number = models.CharField(max_length=15)

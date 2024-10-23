@@ -6,7 +6,7 @@ class Organization(models.Model):
     name = models.TextField()
     phone = models.CharField(max_length=20)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    area = models.CharField(AREA_CHOICES, max_length=2)
+    area = models.CharField(choices=AREA_CHOICES, max_length=2)
     description = models.CharField(max_length=250, null=True, blank=True)
 
 
