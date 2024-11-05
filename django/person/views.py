@@ -15,7 +15,7 @@ class PessoaCreateView(CreateView):
     model = Pessoa
     form_class = PessoaForm
     template_name = "pessoa/create.html"
-    success_url = reverse_lazy("list-person")
+    success_url = reverse_lazy("list-person-api")
 
 
 class PessoaUpdateView(UpdateView):
@@ -39,5 +39,10 @@ class PessoaViewSet(viewsets.ModelViewSet):
 
 
 class PessoaListAPIView(generics.ListAPIView):
+    queryset = Pessoa.objects.all()
+    serializer_class = PessoaSerializer
+
+
+class PessoaCreateAPIView(generics.CreateAPIView):
     queryset = Pessoa.objects.all()
     serializer_class = PessoaSerializer
