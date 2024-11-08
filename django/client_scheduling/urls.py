@@ -3,7 +3,7 @@ from django.urls import path, include
 from client_scheduling.views import HomeTemplateView
 from person.views import PessoaViewSet
 from rest_framework import routers
-from person.views import PessoaListAPIView, PessoaCreateAPIView
+from person.views import PessoaListAPIView, PessoaCreateAPIView, PessoaDetailAPIView
 
 router = routers.DefaultRouter()
 router.register('persons', PessoaViewSet)
@@ -16,6 +16,7 @@ urlpatterns = [
     path('address/', include('address.urls')),
     path('persons/list-api/', PessoaListAPIView.as_view(), name='list-person-api'),
     path('persons/create-api/', PessoaCreateAPIView.as_view(), name='create-person-api'),
+    path('persons/detail-api/<int:pk>/', PessoaDetailAPIView.as_view(), name='detail-person-api'),
     path('', HomeTemplateView.as_view(), name="home"),
 ]
 
