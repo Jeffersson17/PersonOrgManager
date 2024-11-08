@@ -39,10 +39,15 @@ class PessoaViewSet(viewsets.ModelViewSet):
 
 
 class PessoaListAPIView(generics.ListAPIView):
-    queryset = Pessoa.objects.all()
+    queryset = Pessoa.objects.all().order_by('id')
     serializer_class = PessoaSerializer
 
 
 class PessoaCreateAPIView(generics.CreateAPIView):
+    queryset = Pessoa.objects.all()
+    serializer_class = PessoaSerializer
+
+
+class PessoaDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Pessoa.objects.all()
     serializer_class = PessoaSerializer
