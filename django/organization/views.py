@@ -1,6 +1,8 @@
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from .models import Organization
 from .forms import OrganizationForm
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .serializers import OrganizationSerializer
 from django.urls import reverse_lazy
 from address.defaults import STATE_CITY_CHOICE, ADDRESS_TYPE, AREA_CHOICES
@@ -46,6 +48,16 @@ class OrganizationDeleteView(DeleteView):
 class OrganizationViewSet(viewsets.ModelViewSet):
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
+
+
+class StatusChoices(APIView):
+    def get(self, request):
+        data = {
+            "area_choices": AREA_CHOICES,
+            "address_type": ADDRESS_TYPE,
+            "state_city_choice": STATE_CITY_CHOICE,
+        }
+        return Response(data)
 
 
 class OrganizationListAPIView(generics.ListAPIView):
