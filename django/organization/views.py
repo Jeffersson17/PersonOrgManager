@@ -53,7 +53,7 @@ class OrganizationViewSet(viewsets.ModelViewSet):
 class StatusChoices(APIView):
     def get(self, request):
         data = {
-            "area_choices": AREA_CHOICES,
+            "area_choices": list(AREA_CHOICES.values()),
             "address_type": ADDRESS_TYPE,
             "state_city_choice": STATE_CITY_CHOICE,
         }
