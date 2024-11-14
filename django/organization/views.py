@@ -3,7 +3,7 @@ from .models import Organization
 from .forms import OrganizationForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import OrganizationSerializer
+from .serializers import OrganizationSerializer, StatusChoicesSerializer
 from django.urls import reverse_lazy
 from address.defaults import STATE_CITY_CHOICE, ADDRESS_TYPE, AREA_CHOICES
 from rest_framework import generics, viewsets
@@ -53,11 +53,12 @@ class OrganizationViewSet(viewsets.ModelViewSet):
 class StatusChoices(APIView):
     def get(self, request):
         data = {
-            "area_choices": list(AREA_CHOICES.values()),
+            "area_choices": AREA_CHOICES,
             "address_type": ADDRESS_TYPE,
             "state_city_choice": STATE_CITY_CHOICE,
         }
-        return Response(data)
+        serializer = StatusChoicesSerializer(data)
+        return Response(serializer.data)
 
 
 class OrganizationListAPIView(generics.ListAPIView):
