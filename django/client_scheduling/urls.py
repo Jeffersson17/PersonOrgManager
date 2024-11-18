@@ -6,14 +6,18 @@ from organization.views import OrganizationViewSet
 from rest_framework import routers
 from person.views import PessoaListAPIView, PessoaCreateAPIView, PessoaDetailAPIView
 from organization.views import OrganizationDetailAPIView, OrganizationListAPIView, StatusChoices
+from address.views import AddressViewSet, CityViewSet
 
 router = routers.DefaultRouter()
 router.register('persons', PessoaViewSet)
 router.register('organizations', OrganizationViewSet)
+router.register('address', AddressViewSet)
+router.register('city', CityViewSet)
 
 urlpatterns = [
     path('', HomeTemplateView.as_view(), name='home'),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('person/', include('person.urls')),
     path('organization/', include('organization.urls')),
@@ -25,5 +29,3 @@ urlpatterns = [
     path("organization/list-api/", OrganizationListAPIView.as_view(), name='organization-list-api'),
     path('api/choices/', StatusChoices.as_view(), name='organization-choices-api')
 ]
-
-urlpatterns += router.urls

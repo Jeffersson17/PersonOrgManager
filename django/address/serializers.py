@@ -9,10 +9,10 @@ class CitySerializer(serializers.ModelSerializer):
 
 
 class AddressSerializer(serializers.ModelSerializer):
-    city = CitySerializer(read_only=True)
+    city_base = CitySerializer(read_only=True, source='city')
 
 
     class Meta:
         model = Address
-        fields = ['address', 'address_type', 'city', 'cep', 'number', 'complement']
+        fields = ['address', 'address_type', 'city', 'city_base', 'cep', 'number', 'complement']
 
