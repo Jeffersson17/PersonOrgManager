@@ -1,7 +1,7 @@
 from .models import Organization
 from rest_framework import serializers
 from address.serializers import AddressSerializer
-from address.defaults import AREA_CHOICES, ADDRESS_TYPE, STATE_CITY_CHOICE
+from address.defaults import AREA_CHOICES
 
 class OrganizationSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
