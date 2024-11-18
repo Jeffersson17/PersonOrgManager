@@ -20,12 +20,3 @@ class StatusChoicesSerializer(serializers.Serializer):
 
     def get_area_choices(self, obj):
         return list(AREA_CHOICES.values())
-
-
-    def get_address_type(self, obj):
-        return list(ADDRESS_TYPE.values())
-
-
-    def get_state_city_choice(self, obj):
-        return list(STATE_CITY_CHOICE.values())
-
