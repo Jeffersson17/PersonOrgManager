@@ -7,6 +7,7 @@ from .serializers import OrganizationSerializer, StatusChoicesSerializer
 from django.urls import reverse_lazy
 from address.defaults import STATE_CITY_CHOICE, ADDRESS_TYPE, AREA_CHOICES
 from rest_framework import generics, viewsets
+from .filters import OrganizationFilter
 
 
 class OrganizationListView(ListView):
@@ -48,6 +49,7 @@ class OrganizationDeleteView(DeleteView):
 class OrganizationViewSet(viewsets.ModelViewSet):
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
+    filterset_class = OrganizationFilter
 
 
 class StatusChoices(APIView):
