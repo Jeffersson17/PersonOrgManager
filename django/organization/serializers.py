@@ -18,13 +18,13 @@ class StatusChoicesSerializer(serializers.Serializer):
     state_city_choice = serializers.SerializerMethodField()
 
 
-    def get_area_choices(self):
-        return list(AREA_CHOICES.values())
+    def get_area_choices(self, obj):
+        return [{'id': key, 'title': value} for key, value in AREA_CHOICES.items()]
 
 
-    def get_address_type(self):
-        return list(ADDRESS_TYPE.values())
+    def get_address_type(self, obj):
+        return [{'id': key, 'title': value} for key, value in ADDRESS_TYPE.items()]
 
 
-    def get_state_city_choice(self):
-        return list(STATE_CITY_CHOICE.values())
+    def get_state_city_choice(self, obj):
+        return [{'id': key, 'title': value} for key, value in STATE_CITY_CHOICE.items()]
