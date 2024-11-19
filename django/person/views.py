@@ -4,6 +4,7 @@ from .forms import PessoaForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets, generics
 from .serializers import PessoaSerializer
+from .filters import PessoaFilter
 
 
 class PessoaListView(ListView):
@@ -36,6 +37,7 @@ class PessoaDeleteView(DeleteView):
 class PessoaViewSet(viewsets.ModelViewSet):
     queryset = Pessoa.objects.all()
     serializer_class = PessoaSerializer
+    filterset_class = PessoaFilter
 
 
 class PessoaListAPIView(generics.ListAPIView):
