@@ -14,5 +14,5 @@ class AddressSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Address
-        fields = ['address', 'address_type', 'city', 'city_base', 'cep', 'number', 'complement']
+        fields = ['id', 'address', 'address_type', 'city', 'city_base', 'cep', 'number', 'complement']
 
