@@ -5,11 +5,20 @@ from address.defaults import AREA_CHOICES, ADDRESS_TYPE, STATE_CITY_CHOICE
 
 class OrganizationSerializer(serializers.ModelSerializer):
     address_base = AddressSerializer(read_only=True, source="address")
+    area_base = serializers.SerializerMethodField()
 
 
     class Meta:
         model = Organization
-        fields = ['id', 'name', 'phone', 'address', 'address_base', 'area', 'description']
+        fields = ['id', 'name', 'phone', 'address', 'address_base', 'area', 'area_base', 'description']
+
+
+    def get_area_base(self, obj):
+        area_dict = dict(AREA_CHOICES)
+        return {
+            "id": obj.area,
+            "title": area_dict.get(obj.area, obj.area)
+        }
 
 
 class StatusChoicesSerializer(serializers.Serializer):
